@@ -1,0 +1,187 @@
+a{color:rgba(0, 255, 255, 0.616)}
+ul,li{
+    text-align: center;
+    display: inline-block;
+    margin: 2px,2px;
+    padding: 0,0;
+}
+#pepe{
+    padding: 1px; 
+    border-style:solid; 
+    border-width:0%; 
+    border-color:rgba(0, 0, 255, 0.596); 
+    margin:0%;
+}
+#tit{color:rgb(1, 131, 192); text-align: center;background-image: "https://img.freepik.com/premium-vector/corporate-business-blue-colorful-abstract-design-background_249611-812.jpg?size=626&ext=jpg" ;}
+div.sticky{
+    position: -webkit-sticky;
+    position: sticky;   
+}
+.container {
+    position: relative;
+  }
+  .lema {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;
+  }
+  
+.titel{
+    text-align: center;
+}
+.logo{
+    width: 25px;
+    height: 25px;
+}
+.ima1{
+    margin: 1%;
+    padding: 1%;
+    width: 275px;
+    height: 305px;
+    opacity: 1;
+    border-radius: 2%;
+    text-align: center;
+}
+article.index,ul{
+    background: rgb(0, 48, 121);
+    margin: 1%;
+    padding: 1%;
+    width: 100%;
+    opacity: 1;
+ }   
+article.pro1{
+    float: left;
+    display: inline-block;
+    text-decoration: none;
+    background: rgb(174,238,197);
+    background: -moz-radial-gradient(circle, rgba(174,238,197,1) 21%, rgb(2, 43, 224) 75%);
+    background: -webkit-radial-gradient(circle, rgba(174,238,197,1) 21%, rgb(5, 99, 206) 75%);
+    background: radial-gradient(circle, rgba(174,238,197,1) 21%, rgb(19, 3, 167) 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#aeeec5",endColorstr="#548dd0",GradientType=1);
+    color: rgb(175, 173, 255);
+    border: 2px solid rgba(255, 255, 255, 0.493);
+    margin: 1%;
+    padding: 1%;
+    width: 28%;
+    height: 550px;
+    opacity: 1;
+    border-radius: 2%;
+    box-shadow: 3px 3px 3px rgb(255, 255, 255);
+}
+article.pro2{
+    display:block;
+    text-decoration: none;
+    background-color:rgba(0, 0, 255, 0.596);
+    color: rgb(175, 173, 255);
+    border: 2px solid rgba(255, 255, 255, 0.493);
+    margin: 1%;
+    padding: 1%;
+    width: 25%;
+    height: 200px;
+}
+article.pro3{
+    float: left;
+    background-color:rgba(0, 0, 255, 0.596);
+    color: rgb(175, 173, 255);
+    border: 2px solid rgba(255, 255, 255, 0.493);
+    margin: 1%;
+    padding: 1%;
+    width: 25%;
+    height: 200px;
+}
+article.pro4{
+    float: left;
+    background-color:rgba(0, 0, 255, 0.596);
+    color: rgb(175, 173, 255);
+    border: 2px solid rgba(255, 255, 255, 0.493);
+    margin: 1%;
+    padding: 1%;
+    width: 25%;
+    height: 200px;
+}
+article.pro5{
+    float: left;
+    background-color:rgba(0, 0, 255, 0.596);
+    color: rgb(175, 173, 255);
+    border: 2px solid rgba(255, 255, 255, 0.493);
+    margin: 1%;
+    padding: 1%;
+    width: 25%;
+    height: 200px;
+}
+article.pro6{
+    float: left;
+    background-color:rgba(0, 0, 255, 0.596);
+    color: rgb(175, 173, 255);
+    border: 2px solid rgba(255, 255, 255, 0.493);
+    margin: 1%;
+    padding: 1%;
+    width: 25%;
+    height: 200px;
+}
+.buttonClass {
+    font-size:15px;
+    font-family:Arial;
+    width:140px;
+    height:50px;
+    border-width:1px;
+    color:#fff;
+    border-color:#0b0e07;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    box-shadow:inset 0px -3px 7px 0px #29bbff;
+    text-shadow:inset 0px 1px 0px rgba(0, 16, 68, 1);
+    background:linear-gradient(#2dabf9, rgba(14, 63, 107, 1));
+  }
+  
+  .buttonClass:hover {
+    background: linear-gradient(rgba(14, 63, 107, 1), #2dabf9);
+  }
+                
+body{
+    color: aquamarine;
+    background-color: rgb(0, 0, 0);
+    background: rgb(0, 0, 0);
+    text-decoration: none;
+}
+.contacte{
+    color: #0b0e07;
+}
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  .container{
+    background: #095eadc7;
+  }
