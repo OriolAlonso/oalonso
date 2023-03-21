@@ -1,0 +1,368 @@
+.main{
+    padding: 16px;
+    margin-top: 30px;
+    height: 1500px; 
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color:  #000000;
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wallpaperbetter.com%2Fes%2Fsearch%3Fq%3Dprogramadores&psig=AOvVaw0n9riv90GOlqaBjmMle5aP&ust=1678375257018000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNC65pnRzP0CFQAAAAAdAAAAABAT");
+}
+
+/* Botón Glow (Resplando) on Hover*/
+
+.glow-on-hover {
+	font-size: 15px;
+	font-weight: 700;
+	text-transform: uppercase;
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #054263;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #054263
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #054263;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+:root {
+  --bg: #1a1e24;
+  --color: #eee;
+  --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+  padding: 1.5rem 0;
+  filter: url('#goo');
+  align-content: center;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  width: auto;
+  background: var(--color);
+  color: var(--bg);
+  font-weight: bold;
+  padding: 1.18em 1.32em 1.03em;
+  line-height: 1;
+  border-radius: 1em;
+  position: relative;
+  min-width: 8.23em;
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1.25rem;
+  background-position:center center; /*respecto a body*/
+}
+
+.button:before,
+.button:after {
+  width: 4.4em;
+  height: 2.95em;
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background: var(--color);
+  border-radius: 50%;
+  transition: transform 1s ease;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.button:before {
+  top: -25%;
+  left: 20%;
+}
+
+.button:after {
+  bottom: -25%;
+  right: 20%;
+}
+
+.button:hover:before,
+.button:hover:after {
+  transform: none;
+}
+
+.glow {
+  font-size: auto;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px rgb(0, 183, 255), 0 0 20px rgb(0, 183, 255), 0 0 30px rgb(0, 183, 255), 0 0 40px rgb(0, 183, 255), 0 0 50px rgb(0, 183, 255), 0 0 60px rgb(0, 183, 255), 0 0 70px rgb(0, 183, 255);
+
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgb(0, 183, 255), 0 0 20px rgba(0, 183, 255, 0.781), 0 0 30px rgb(0, 89, 255), 0 0 40px rgb(0, 140, 255), 0 0 50px rgb(0, 123, 255), 0 0 60px rgb(0, 103, 255), 0 0 70px rgb(0, 183, 255);
+  }
+  
+  to {
+    text-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px #4d50ff, 0 0 40px #4dcdff, 0 0 50px #4d7cff, 0 0 60px #504dff, 0 0 70px #4d59ff, 0 0 80px #824dff;
+  }
+}
+@keyframes glow {
+  from {
+      }
+  
+  to {
+    text-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px #4d50ff, 0 0 40px #4dcdff, 0 0 50px #4d7cff, 0 0 60px #504dff, 0 0 70px #4d59ff, 0 0 80px #824dff;
+}
+}
+
+.glow2 {
+  font-size: auto;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px rgb(225, 225, 225), 0 0 30px rgb(200, 200, 200), 0 0 40px rgb(175, 175, 175), 0 0 50px rgb(150, 150, 150), 0 0 60px rgb(125, 125, 125), 0 0 70px rgb(100, 100, 100);
+
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgb(0, 183, 255), 0 0 20px rgba(0, 183, 255, 0.781), 0 0 30px rgb(0, 89, 255), 0 0 40px rgb(0, 140, 255), 0 0 50px rgb(0, 123, 255), 0 0 60px rgb(0, 103, 255), 0 0 70px rgb(0, 183, 255);
+  }
+  
+  to {
+    text-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px #4d50ff, 0 0 40px #4dcdff, 0 0 50px #4d7cff, 0 0 60px #504dff, 0 0 70px #4d59ff, 0 0 80px #824dff;
+  }
+}
+@keyframes glow {
+  from {
+      }
+  
+  to {
+    text-shadow: 0 0 20px rgb(0, 0, 0), 0 0 30px #4d50ff, 0 0 40px #4dcdff, 0 0 50px #4d7cff, 0 0 60px #504dff, 0 0 70px #4d59ff, 0 0 80px #824dff;
+}
+}
+/*imatge*/
+.hero-image {
+    background-image: url("https://www.wildnettechnologies.com/wp-content/uploads/2018/05/jst.png");
+    background-color: #000000;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .contingut{
+    background-position:center center; /*respecto a body*/
+    /*box-shadow: 10px 15px #ffffff;*/
+    height: 500px;
+    background-size: 1000px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: auto;
+    position: relative;
+    clear: both; 
+    border-radius: 10%;
+    
+    
+  }
+  
+   .span{
+    
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+  .contingut2{
+    background-color: #000000;
+    /*box-shadow: 10px 15px #ffffff;*/
+    height: auto;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: auto;
+    position: absolute;
+    background-size: auto;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    position: relative;
+    text-align: center;
+    
+    clear: both; 
+    /*exeee*/
+  }
+  .conten-text {
+    text-align: left;
+    position: absolute;
+    background-size: auto;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    align-items: center;
+    border-radius: 10%;
+    background-image: url("http://www.ddesignerr.com/wp-content/uploads/2012/05/022.gif");
+    clear: both; 
+    background-position:center center; /*respecto a body*/
+    height:385px; 
+    width:370px;
+    text-align: center;
+  }
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+/*End imatge*/
+.mobile-container {
+  max-width: auto;
+  margin: auto;
+  background-color: rgb(0, 0, 0);
+  height: 45px;
+  width: auto;
+  clear: both; 
+  background-image: url("http://gifimage.net/wp-content/uploads/2017/11/ecualizador-en-movimiento-azul-gif-7.gif");
+  /*color: white;*/
+  /*border-radius: 10px;*/
+}
+.pro1{
+  background-image: url("https://media.giphy.com/media/Qmb9cRf4RUXnO/giphy.gif");
+  background-position:center center; /*respecto a body*/
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  top: 0;
+  height: 45px;
+  width: 100%;
+  clear: both; 
+  background-image: url("http://gifimage.net/wp-content/uploads/2017/11/ecualizador-en-movimiento-azul-gif-7.gif");
+}
+
+.topnav2 {
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  clear: both; 
+}
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+    float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+.navbar a:hover {
+    background: rgb(0, 0, 0);
+    color: black;
+  }
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+.flex-container { 
+  flex-wrap: wrap;
+  display: flex;
+  grid-template-rows: 1px  1px  1px ;
+  /*grid-template-columns: auto auto auto;
+  */gap: 10px;
+  font-display:inherit;
+  text-align: center;
+  justify-content: center;
+  column-rule-color: aqua;
+  clear: both; 
+}
+.topnav a:hover {
+  background-color: rgb(0, 0, 0);
+  color: black;
+}
+
+.active {
+  background-color: #000000;
+  color: white;
+}.active2 {
+  background-color: #8b0202d7;
+  color: white;
+}
+.footer{
+  width: 98%; /* Full width */
+    padding: 17px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    color: blanchedalmond;
+    background-color: rgba(73, 3, 138, 0.356);
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-image: url("http://gifimage.net/wp-content/uploads/2017/11/ecualizador-en-movimiento-azul-gif-7.gif");
+  }
+.white{
+  color: azure;
+}
+
+.log{
+  background-image: url("http://i.imgur.com/5Znoi.gif");
+}
+.aling{
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  align-self:center ;
+}
