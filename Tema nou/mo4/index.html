@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whac a Mole</title>
+    <link rel="stylesheet" href="mole.css">
+    <script src="mole.js"></script>
+</head>
+<body>
+    <h1>Whac a Mole</h1>
+    <p>Creeper Mode</p>
+    <label id="countdown"></label>
+    <h2 id="score">0</h2>
+    <!-- 3x3 -->
+    <div id="board">
+    </div>
+    <!-- Victory mensage -->
+    <div id="victory-message" style="position: relative; top: -350; width:-300px " hidden  >
+        <h1>You Win!</h1>
+        <p>Thanks for playing our game.</p>
+    </div>
+    <!-- Lost mensage -->
+    <div id="lost-message" style="position: relative; top: -350; width:-300px " hidden  >
+        <h1>Game Over</h1>
+        <p>Good luck next time</p>
+    </div>
+     <!-- box of the button to start the game-->
+     <div class="back" id="Start">
+        <button style="background-color: rgba(255, 0, 0, 0.75); border-color: rgb(0, 128, 50); color: rgb(229, 240, 250); width: 200px; " onclick="setGame()"><h1> Start </h1></button>
+      </div>
+
+
+
+
+
+      
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperatura</title>
+    <link rel="stylesheet" href="temperature.css">
+    <script src="calcule.js"></script>
+  </head>
+  <body>
+    <div id="board">
+    
+    <h1>Conversor de temperatura de Fahrenheit a Celsius i viceversa</h1>
+    <label>
+        Fahrenheit a Celsius
+      <input type="radio" name="conversion" value="fahrenheit" checked>
+      
+    </label>
+    <label>
+        Celsius a Fahrenheit
+      <input type="radio" name="conversion" value="celsius">
+      
+    </label>
+    <br>
+    <br>
+    <label>
+      <h2>Introdueix els graus:</h2>
+      <input type="text" id="graus">º Celsius
+    </label>
+    <br><br>
+    <div class="back" id="convert">
+    <button style="background-color: rgba(255, 0, 0, 0.774); border-color: rgb(0, 128, 49); color: rgb(229, 240, 250);" onclick="calcular()">Calcular</button>
+    </div>
+    <br><br>
+    <label id="resultat"></label>
+    </div>
+  </body>
+</html>
