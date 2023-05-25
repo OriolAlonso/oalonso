@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Quiz</title>
+  <link rel="stylesheet" href="Quiz.css">
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <h1>Javascript Quiz</h1>
+      <h2>Test your knowledge of JavaScript</h2>
+    </div>
+    <div class="countdown">
+      <span class="time_left">0</span> seconds
+    </div>
+    <div class="points">
+      <span class="points">0</span> points
+    </div>
+  </header>
+
+  <div class="start">
+    <div class="card">
+      <p>Are you ready?</p>
+      <button class="start-btn">Start</button>
+    </div>
+  </div>
+
+  <div class="play">
+    <!-- Aquí puedes colocar las imágenes del array -->
+    <br>
+    <div class="questions"></div>
+  </div>
+
+  <div class="finish card">
+    <p class="times_up">Time's up!</p>
+    <p>You scored</p>
+    <p class="final_points">0 points</p>
+    <div class="play_again">
+      <button class="restart-btn">Restart</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.querySelector('.start-btn').addEventListener('click', startQuiz);
+
+    var questions = [
+      ["What will be displayed?", "NaN", "15", "105", 3],
+      ["Does this code work?", "Yes and it shows 10", "Yes and it shows 25", "No", 1],
+      ["Does this code work?", "No", "Yes and it shows 7", "Yes and it shows 57", 1],
+      ["What value will the alert display?", "1", "5", "0", 3],
+      ["Does this code work?", "No", "Yes and it shows 0", "Yes and it shows 12", 3],
+      ["What value does it display?", "true", "2 €", "10 €", 2],
+      ["What value does the alert display?", "8", "6", "5", 1],
+      ["What will be displayed on the screen?", "Volvo Saab Ford", "Saab Ford", "Ford", 2],
+      ["What will be displayed on the screen?", "Juanito", "Maria", "Juanito Maria", 2],
+      ["What will the alert display?", "L1", "L2", "demo2", 1]
+    ];
+
+    var pictures = [
+      new Image(),
+      new Image(),
+      new Image(),
+      new Image(),
+      new Image(),
+      new Image(),
+      new Image(),
+      new Image(),
+      new Image(),
+      new Image()
+    ];
+
+    function displayQuestion() {
+      var questionContainer = document.querySelector('.questions');
+      questionContainer.innerHTML = '';
+
+      var question = questions[currentQuestion];
+
+      var questionElement = document.createElement('div');
+      questionElement.classList.add('question');
+      questionElement.textContent = question[0];
+      questionContainer.appendChild(questionElement);
+
+      var imageElement = document.createElement('img');
+      imageElement.src = (currentQuestion + 1) + '.png';
+      questionContainer.appendChild(imageElement);
+
+      for (var i = 1; i <= 3; i++) {
+        var optionElement = document.createElement('label');
+        optionElement.classList.add('option');
+        var radioInput = document.createElement('input');
+        radioInput.type = 'radio';
+        radioInput.name = 'answer';
+        radioInput.value = i;
+        optionElement.appendChild(radioInput);
+        optionElement.appendChild(document.createTextNode(question[i]));
+        questionContainer.appendChild(optionElement);
+      }
+
+      // Añadir evento click al botón para comprobar la respuesta
+      var nextButton = document.createElement('button');
+      nextButton.textContent = 'Next';
+      nextButton.classList.add('next-btn');
+      questionContainer.appendChild(nextButton);
+      nextButton.addEventListener('click', checkAnswer);
+    }
+
+    var currentQuestion = 0; // Índice de la pregunta actual
+    var score = 0; // Puntuación del jugador
+    var timer; // Referencia al temporizador
+    var timeLeft; // Tiempo restante en segundos
+
+    function startQuiz() {
+      // Ocultar la sección de inicio y mostrar la sección de juego
+      document.querySelector('.start').style.display = 'none';
+      document.querySelector('.play').style.display = 'block';
+
+      // Configurar el temporizador
+      timeLeft = 60; // Cambia este valor para establecer la duración del cuestionario en segundos
+      document.querySelector('.time_left').textContent = timeLeft;
+
+      // Iniciar la cuenta atrás
+      timer = setInterval(updateTimer, 1000);
+
+      // Mostrar la primera pregunta
+      displayQuestion();
+    }
+
+    function updateTimer() {
+      timeLeft--;
+      document.querySelector('.time_left').textContent = timeLeft;
+
+      // Comprobar si se ha agotado el tiempo
+      if (timeLeft <= 0) {
+        endQuiz();
+      }
+    }
+
+    function checkAnswer() {
+      var selectedOption = document.querySelector('input[name="answer"]:checked');
+      if (selectedOption) {
+        var selectedAnswerIndex = parseInt(selectedOption.value);
+
+        var correctAnswerIndex = questions[currentQuestion][4];
+
+        if (selectedAnswerIndex === correctAnswerIndex) {
+          score++;
+        }
+
+        currentQuestion++;
+
+        if (currentQuestion >= questions.length) {
+          endQuiz();
+        } else {
+          displayQuestion();
+        }
+      }
+    }
+
+    function endQuiz() {
+      clearInterval(timer); // Detener el temporizador
+
+      // Mostrar la puntuación final
+      document.querySelector('.final_points').textContent = score + ' points';
+
+      // Ocultar la sección de juego y mostrar la sección de finalización
+      document.querySelector('.play').style.display = 'none';
+      document.querySelector('.finish').style.display = 'block';
+    }
+
+    document.querySelector('.restart-btn').addEventListener('click', function () {
+      currentQuestion = 0;
+      score = 0;
+
+      document.querySelector('.finish').style.display = 'none';
+      document.querySelector('.start').style.display = 'block';
+
+      startQuiz();
+    });
+  </script>
+</body>
+
+</html>
