@@ -1,0 +1,11 @@
+Model Information:
+* title:	Warhammer 40k Ship Demo
+* source:	https://sketchfab.com/3d-models/warhammer-40k-ship-demo-7f1ecea73a0143f185544f4c7b1a1f96
+* author:	Daniel K. (https://sketchfab.com/danielkey)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Warhammer 40k Ship Demo" (https://sketchfab.com/3d-models/warhammer-40k-ship-demo-7f1ecea73a0143f185544f4c7b1a1f96) by Daniel K. (https://sketchfab.com/danielkey) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
