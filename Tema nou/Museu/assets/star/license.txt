@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fire Nether Star - Minecraft
+* source:	https://sketchfab.com/3d-models/fire-nether-star-minecraft-92b217100c2d4c6ebcf0b04c0177c53a
+* author:	serboryt (https://sketchfab.com/serboryt)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fire Nether Star - Minecraft" (https://sketchfab.com/3d-models/fire-nether-star-minecraft-92b217100c2d4c6ebcf0b04c0177c53a) by serboryt (https://sketchfab.com/serboryt) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
