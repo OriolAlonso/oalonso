@@ -96,7 +96,7 @@
   ],
   "images": [
     {
-      "uri": "textures/palette_baseColor.png"
+      "uri": "star/textures/palette_baseColor.png"
     }
   ],
   "materials": [
