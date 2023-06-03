@@ -21,13 +21,7 @@
     <a-scene cursor="rayOrigin: mouse">
 
         <a-assets>
-            <a-asset-item id="sala" src="sala/scene.gltf"></a-asset-item>
-            <a-asset-item id="emperador" src="emperador/scene.gltf"></a-asset-item>
-            <img id="pedra" src="pedra.jpg"></a-asset-item>
-            <img id="imperator" src="imperator.jpg"></a-asset-item>
-    
             <a-asset-item id="edifici" src="Ruin/scene.gltf"></a-asset-item>
-            <a-asset-item id="sky" src="sky/scene.gltf"></a-asset-item>
             <a-asset-item id="imgstar" src="star/scene.gltf"></a-asset-item>
     
         </a-assets>
@@ -40,7 +34,7 @@
               
               
               <!-- fuseTimeout = el temps que triga en fer click des de que es posiciona sobre un objecte-->
-                 <a-entity cursor="fuse: true; fuseTimeout: 2000"
+              <!--   <a-entity cursor="fuse: true; fuseTimeout: 2000"
                        position="0 0 -1"
                        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
                        material="color: red; shader: flat"
@@ -49,16 +43,9 @@
                              to: white;
                              dur: 1000;
                              dir: alternate;
-                             loop: true">
-                 </a-entity>
-                </a-entity>
-           
-        <a-entity gltf-model="#sala" position="2 -1 0" rotation="0 90 0" scale="1 1 1"></a-entity>        
-        <a-entity gltf-model="#emperador" position="-0.4 0.7 -1.9" rotation="0 90 0" scale="1.4 1.4 1.4"
-        animation="property: position; dur: 2000; from: -0.4 0.7 -1.9; to: -0.4 0.8 -1.9; dir: alternate; loop: true"  faigclick">
-        </a-entity>
+                             loop: true">-->
         <a-cylinder  src="#pedra" radius="0.2" height="2" position="0.2 -1 -2"></a-cylinder>
-        <a-plane id="panel" src="#imperator" scale="1 1 1" position="0.8 0 -1" rotation="5 -10 0" visible="false"></a-plane>
+       <!--  <a-plane id="panel" src="#imperator" scale="1 1 1" position="0.8 0 -1" rotation="5 -10 0" visible="false"></a-plane>-->
     </a-scene>
   </body>
 </html>
