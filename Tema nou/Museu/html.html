@@ -7,6 +7,7 @@
    <a-assets>
      <img id="imgSortida" src="assets/entragroc.png" >
      <img id="imgFantasma" src="assets/fondo.jpg" >
+     <img id="cil" src="assets/broken_wall_diff_4k.jpg" >
      <a-asset-item id="edifici" src="assets/Ruin/scene.gltf"></a-asset-item>
     <a-asset-item id="imgstar" src="assets/star/scene.gltf"></a-asset-item>
    </a-assets>
@@ -14,7 +15,7 @@
   
    <a-scene>
      <a-entity gltf-model="#edifici" position="39 -16 -90" scale="100 100 100"></a-entity>
-     <a-cylinder color="cyan" radius="0.5" height="1" segments-radial="6" position="1 0 1"></a-cylinder>
+     <a-cylinder color="cyan" src="#imgFantasma" radius="0.5" height="1" segments-radial="6" position="3 0 -27"></a-cylinder>
      <a-entity gltf-model="#imgstar" position="2 2 -31" scale="3 3 3"></a-entity> 
      <a-sky color="#005"></a-sky>
      <a-sphere position="0 2 -5" radius="1" color="#ff0"></a-sphere>
