@@ -1,0 +1,51 @@
+//sketchfab
+<html>
+   
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script>
+        AFRAME.registerComponent("faigclick", {
+        init: function() {  
+         this.el.addEventListener("click", (e) => {  
+		//busquem l’element que té com a ide panel
+            var sceneEl = document.querySelector('#panel');
+		//el fem visible
+            sceneEl.setAttribute('visible', true);                
+           })
+        }
+      })
+    </script>
+
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse">
+
+        <a-assets>
+            <a-asset-item id="edifici" src="Ruin/scene.gltf"></a-asset-item>
+            <a-asset-item id="imgstar" src="star/scene.gltf"></a-asset-item>
+    
+        </a-assets>
+          <a-sky color="#999"></a-sky>
+          <a-entity gltf-model="#edifici" position="39 -16 -90" scale="100 100 100"></a-entity>
+          <a-entity gltf-model="#sky" position="39 -16 -90" scale="100 100 100"></a-entity>
+          <a-entity gltf-model="#imgstar" position="2 2 -31" src="#imgstar" scale="3 3 3"></a-entity>           
+          <a-entity wasd-controls="false">
+                
+              
+              
+              <!-- fuseTimeout = el temps que triga en fer click des de que es posiciona sobre un objecte-->
+              <!--   <a-entity cursor="fuse: true; fuseTimeout: 2000"
+                       position="0 0 -1"
+                       geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                       material="color: red; shader: flat"
+                       animation="property: components.material.material.color;
+                             type: color;
+                             to: white;
+                             dur: 1000;
+                             dir: alternate;
+                             loop: true">-->
+        <a-cylinder  src="#pedra" radius="0.2" height="2" position="0.2 -1 -2"></a-cylinder>
+       <!--  <a-plane id="panel" src="#imperator" scale="1 1 1" position="0.8 0 -1" rotation="5 -10 0" visible="false"></a-plane>-->
+    </a-scene>
+  </body>
+</html>
