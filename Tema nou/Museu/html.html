@@ -5,29 +5,25 @@
  </head>
  <body>
    <a-assets>
-     <img id="imgSortida" src="assets/entragroc.png" >
-     <img id="imgFantasma" src="assets/rock.png" >
-     <img id="cil" src="assets/broken_wall_diff_4k.jpg" >
+     <img id="imgSortida" src="assets/entragroc.png">
+     <img id="imgFantasma" src="assets/rock.png">
+     <img id="cil" src="assets/broken_wall_diff_4k.jpg">
      <a-asset-item id="edifici" src="assets/Ruin/scene.gltf"></a-asset-item>
      <img id="star" src="assets/Star.jpg">
    </a-assets>
    <a-scene>
      <a-entity gltf-model="#edifici" position="39 -16 -90" scale="100 100 100"></a-entity>
      <a-box color="#6a656a" src="#cil" height="1" scale="2 6 2" position="3 -0.5 -27"></a-box>
-     <--!<a-panel id="#star" position="2 2.433 -27.77" scale="3 3 3" 
-               animation="property: position; dur: 2000; from: -0.4 1.7 -1.9; to: -0.4 1.8 -1.9; dir: alternate; loop: true"
-               animation="property: rotation; dur: 6000; to: 0 360 0; alternative; loop: true">
-     </a-plane>--> 
-     <a-sky color="#6a656a" src="#imgfantasma" ></a-sky>
+     <a-plane id="star" position="2 2.433 -27.77" scale="3 3 3" 
+               animation__position="property: position; dur: 2000; from: -0.4 1.7 -1.9; to: -0.4 1.8 -1.9; dir: alternate; loop: true"
+               animation__rotation="property: rotation; dur: 6000; to: 0 360 0; loop: true">
+     </a-plane>
+     <a-sky color="#6a656a" src="#imgFantasma"></a-sky>
      <a-sphere position="0 2 -5" radius="1" color="#ff0"></a-sphere>
      <a-sphere position="-5 2 0" radius="1" color="#0ff"></a-sphere>
      <a-sphere position="0 2 5" radius="1" color="#f00"></a-sphere>
-     <a-sphere position="5 2 -5" radius="1"  src="#imgFantasma"
-               animation="property: rotation; dur: 6000;
-                      to: 0 360 0; loop: true">         
-      </a-sphere>
+     <a-sphere position="5 2 -5" radius="1" src="#imgFantasma" animation="property: rotation; dur: 6000; to: 0 360 0; loop: true"></a-sphere>
      <a-plane position="-2 2 -6" src="#imgSortida" transparent="true"></a-plane>
    </a-scene>
  </body>
 </html>
-
