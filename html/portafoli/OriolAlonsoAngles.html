@@ -1,0 +1,229 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="">
+        <link rel="shortcut icon" href="images/" type="image/x-icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="images/logo.png">
+        <title> Oriol Alonso</title>
+    </head>
+
+    <body>
+        <div id="menu">
+            <div id="titles_burger">
+                <a onclick="location.href='OriolAlonsoCatala.html',showMenu()" >Catalan</a>
+                <a href="#Home" onclick="showMenu()">HOME</a>
+                <a href="#AboutMe" onclick="showMenu()">ABOUT ME</a>
+                <a href="#Projects" onclick="showMenu()">PROJECTS</a>
+                <a href="#Contact" onclick="showMenu()">CONTACT</a>
+            </div>
+            <div id="burger">
+                <img id="menu_image" src="images/menu.png" onclick="showMenu()" onclick="toggleLanguageForm()" alt="Menu burger">
+            </div>
+            <div id="container_icon">
+                <img id="icon_image" src="images/imatge.png" alt="Image" onclick="reloadPage()">
+            </div>
+
+            <div id="menu_titles">
+                <div>
+                </div>
+                <a onclick="location.href='OriolAlonsoCatala.html'" >LENGUATGE</a>
+                <a href="#Home">HOME</a>
+                <a href="#AboutMe">ABOUT ME</a>
+                <a href="#Projects">PROJECTS</a>
+                <a href="#Contact">CONTACT</a>
+            </div>
+            
+        </div>
+        <div id="Home"></div>
+        
+        <div id="home_container">
+            
+            <div id="title_container">
+                
+                <div id="saludo_id">
+                    <h1> Welcome, I am Oriol Alonso </h1>
+                </div>
+
+                <div id="slogan_id">
+                    <p> A passionate junior programmer in constant search of new challenges and opportunities to learn, grow and contribute to the programming world.
+                        learn, grow and contribute to the programming world.</p>
+                    <a >
+                        <button  href="" dowload="" class="buttons">Download CV</button>
+                        
+                    </a>
+                    <br><br>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div>
+            <!-- Seleciona el idioma -->
+    <div id="language-container" class="language-container">
+        <button id="toggleFormButton" class="btn btn-info" onclick="toggleLanguageForm()">Select Language</button>
+    </div>
+
+    <div id="formulari" class="container" style="background-color: #f0f0f0; display: none;">
+        <div class="form-group">
+            <label for="idioma">Select Language</label>
+            <select class="form-control" id="idioma">
+                <option value="angles">English</option>
+                <option value="espanol">Spanish</option>
+                <option value="catala">Catalan</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary" id="seleccionaIdioma" onclick="changeLanguage()">Confirm</button>
+    </div>
+
+        </div>
+        <div id="AboutMe">
+        </div>
+        <div class="helper"></div>
+
+        <div id="about">
+            <div id="title_about">
+                <h1>ABOUT ME</h1>
+            </div>
+
+            <div id="about_container">
+
+                <div id="children_about1">
+
+
+                    <div id="personal_image">
+                        <img src="images/workspace.png" alt="Image">
+                    </div>
+                </div>
+                <div id="children_about2">
+                    <div id="container_title">
+                        <h3>Who am I?</h3>
+                    </div>
+                    <h4>I am a student of Multiplatform Application Development.
+                    </h4>
+                    <p>
+                        Currently, I am in my second year of the course, where I am acquiring valuable knowledge and
+                        Practical experience in this constantly evolving field.
+                        <br><br>
+                        Ever since I stumbled into the world of software development, something resonated deeply with me, and I knew
+                        with
+                        absolute certainty that it was a path worth following.
+                        <br><br>
+                        I stand out for my serious and calm approach at work. I function effectively in environments that
+                        demand
+                        concentration, attention to detail and clear communication. I can work under pressure, maintaining
+                        calm and problem solving in challenging situations. I can always maintain high performance
+                        and
+                        deliver high-quality work, even in the face of tight deadlines or urgent demands.
+                        <br><br><br>
+                    <div id="contactme">
+                        <button id="normal_button"> <a href="#Contact">Contact me</a></button>
+                    </div>
+                    </p>
+                </div>
+            </div>
+
+            <div id="skills">
+                <div>
+                    <h2>Competencies</h3>
+                </div>
+
+                <div id="skills_div">
+                    <p class="skill">Java</p>
+                    <p class="skill">Python</p>
+                    <p class="skill">JavaScript</p>
+                    <p class="skill">MySQL</p>
+                    <p class="skill">HTML</p>
+                    <p class="skill">CSS</p>
+                    <p class="skill">Terminal</p>
+                    <p class="skill">Linux</p>
+                    <p class="skill">Windows</p>
+                    <p class="skill">Print 3D</p>
+                    <p class="skill">Odoo</p>
+                    <p class="skill">English</p>
+                </div>
+            </div>
+        </div>
+        <div id="Projects"></div>
+        <div id="projects">
+            <div id="title_text_container">
+                <div id="project_title">
+                    <H1>Projects</H1>
+                </div>
+                <div id="container_p">
+                    <p>Here you will find some of the personal projects I have done, each with its link to GitHub.
+                    </p>
+                </div>
+            </div>
+
+            <div class="projects">
+                <div class="project">
+                    <div class="project_img">
+                        <img src="images/logo.png" alt="Telegram Bot">
+                    </div>
+                    <div class="title_project">
+                        <h2>Project 1</h2>
+                        <p>Project description 1.
+                        </p>
+                        <a href="https://github.com/OriolAlonso/2n-Year.git"  target="_blank"><img
+                                id="icon_image" src="images/Github.png" alt="GitHub Image"></a>
+                        <img alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Contact">
+        </div>
+        <div class="helper"></div>
+        <div id="contacto">
+            <div id="titulo_contacto">
+                <H1>Contact</H1>
+            </div>
+
+            <div id="contact_container">
+                <div class="name_container">
+                    <label class="names" for="name">Name</label><br>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div id="email_container">
+                    <label class="names" for="email">E-mail</label><br>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+                <div class="message_container">
+                    <label class="names" for="message">Message</label>
+                    <br>
+                    <textarea type="text" id="mensaje" name="message" placeholder="Enter Your Message..." required></textarea>
+                </div>
+                <div id="button_div">
+                    <button id="normal_button" onclick="validateForm()">Send</button>
+                </div>
+
+            </div>
+            <div id="icons_container1">
+                <a href="https://github.com/OriolAlonso" target="_blank"><img id="icon_image" src="images/Github.png"
+                        alt="GitHub Image"></a>
+                <a href="https://www.linkedin.com/in/oriol-alonso-ruiz-80b465267/" target="_blank"><img id="icon_image"
+                        src="images/Linkedin.png" alt="LinkedIn Image"></a>
+            </div>
+        </div>
+        <script src="code.js"></script>
+    </body>
+    <footer>
+
+        <div id="container">
+            <p>&copy; 2023 Oriol Alonso.</p>
+        </div>
+
+    </footer>
+
+    <footer>
+
+    </footer>
+
+    </html>

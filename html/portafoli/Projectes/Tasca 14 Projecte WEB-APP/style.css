@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evitar l'escorreguda vertical */
+    background-color: rgb(0, 74, 173); /* Fons del cos */
+    
+}
+
+#header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 74, 173);
+    padding: 10px;
+    z-index: 1; /* Assegurar que estigui davant del fons */
+}
+
+#header-logo {
+    float: left;
+    margin-right: 20px;
+}
+
+#apagar-logo {
+    float: right;
+    cursor: pointer;
+}
+
+#login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* Per situar-lo darrere del fons */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Per situar-lo davant del fons */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#object-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.object-image {
+    width: 50px;
+    height: 50px;
+}
+
+.object-info {
+    display: inline-block;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.btn-primary {
+    background-color: #0F172A;
+    border: none;
+    margin-top: 20px;
+}
+
+
+#background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Per situar-lo darrere del contingut */
+}
+
+#login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Per situar-lo davant del fons */
+    border-radius: 10px;
+    padding: 20px;
+}
+#login-container {
+    position: fixed; /* Canvia a position: fixed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background: url('fondoGif.GIF') center center fixed; */
+    background-size: cover;
+    width: 400px;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden; /* Afegit per evitar que la pàgina es mogui */
+} 
+
+
+
+#background-image {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+#login-form {
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+#logo {
+    width: 80px;
+    margin-bottom: 20px;
+    border-radius: 50% ; 
+    box-shadow: black 5px 12px;
+}
+
+#login-content {
+    background: rgba(15, 23, 42, 0);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#login-form-fields {
+    margin-top: 20px;
+}
+
+.form-control {
+    background: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.btn-primary {
+    background-color: #0f1729;
+    border: none;
+}
+
+#login-message {
+    color: #FFFFFF;
+    margin-top: 15px;
+}
+
+#login-message u {
+    color: #FFFFFF;
+    /* text-decoration: underline; */
+}
+
+
+/* codi inportat stackoverflow*/
+/* Agrega estilos para los círculos con sombras */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%; /*Forma un círculo*/
+    opacity: 0.3; /*Opacidad para la sombra*/
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.4); /*Sombras*/
+}
+
+/* Círculo izquierdo */
+.container::before {
+    width: 200px;
+    height: 200px;
+    top: -100px; /*Ajusta la posición verticalmente*/
+    left: -100px; /*Ajusta la posición horizontalmente*/
+}
+
+/* Círculo derecho */
+.container::after {
+    width: 150px;
+    height: 150px;
+    bottom: -75px; /*Ajusta la posición verticalmente*/
+    right: -75px; /*Ajusta la posición horizontalmente */
+}

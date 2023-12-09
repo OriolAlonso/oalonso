@@ -1,0 +1,111 @@
+    <!DOCTYPE html>
+    <html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Modificar Projecte</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <link rel="shortcut icon" href="logo.png">
+        <div id="header-container">
+            <header class="wrapper clearfix drow">
+                <img src="logo.png" alt="Logo" id="header-logo" style="height: 50px; width: 50px;">
+                <img src="apagar.png" alt="Apagar" id="apagar-logo" onclick="location.href='HomeE.html'" style="height: 50px; width: 60px;">
+            </header>
+        </div>
+    </head>
+    <body style="background-color: rgb(0, 74, 173);">
+        <div id="content-container" class="container">
+            <h2>Modificar els projectes</h2>
+            <!-- Formulari per crear un nou projecte -->
+            <div id="formulariCrearProjecte" style="background-color: rgb(0, 74, 173); color:#f0f0f0f0">
+                <div class="form-group">
+                    <label for="nomProjecte">Nom del Departament:</label>
+                    <input type="text" class="form-control" id="nomProjecte">
+                </div>
+                <div class="form-group">
+                    <label for="seleccioEmpleat">Selecciona un empleat:</label>
+                    <select class="form-control" id="seleccioEmpleat">
+                        <!-- Afegir opcions dinàmicament amb JavaScript -->
+                    </select>
+                    <!-- Afegit una nova caixa d'entrada per al nou departament -->
+                    <div class="form-group">
+                        <label for="nouDepartament">Nom Projecte:</label>
+                        <input type="text" class="form-control" id="nouDepartament">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="confirmaCreacio"  onclick="confirmaCreacioProjecte()">Confirma</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='HomeE.html'"> Tornar al home</button>
+                    </div>
+            
+                    <!-- Botó per afegir empleat i mostrar-lo a la pàgina -->
+                    <button class="btn btn-primary" id="crearEmpleatButton" onclick="location.href='ModyfyEpleat.html'">Crear Empleat</button>
+                
+                </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="Empleador.js"></script>
+
+        <script>
+            var savedEmployees = [];
+
+            // Llama a la función para cargar empleados cuando la página se carga
+            $(document).ready(function () {
+                loadSavedEmployees();
+            });
+
+            // Función para cargar los empleados guardados en la lista
+            function loadSavedEmployees() {
+                var storedEmployees = localStorage.getItem('savedEmployees');
+                if (storedEmployees) {
+                    savedEmployees = JSON.parse(storedEmployees);
+                    updateEmployeeDropdown();
+                }
+            }
+
+            // Función para agregar opciones al desplegable de empleados
+            function updateEmployeeDropdown() {
+                $("#seleccioEmpleat").empty();
+                savedEmployees.forEach(function (empleat) {
+                    $("#seleccioEmpleat").append("<option value='" + empleat.id + "'>" + empleat.nom + " - " + empleat.departament + "</option>");
+                });
+            }
+
+            // Mostrar el formulari de crear projecte al clicar sobre el botó de confirmació
+            $("#confirmaCreacio").click(function () {
+                $("#formulariCrearProjecte").slideDown();
+            });
+
+            // Funció per confirmar la creació del projecte
+            function confirmaCreacioProjecte() {
+                var nomProjecte = $("#nomProjecte").val();
+                var empleatSeleccionatId = $("#seleccioEmpleat").val();
+                var nouDepartament = $("#nouDepartament").val(); // Obté el nou departament de la caixa d'entrada
+
+                if (nomProjecte && empleatSeleccionatId) {
+                    // Trobar l'empleat seleccionat
+                    var empleat = savedEmployees.find(function (e) {
+                        return e.id == empleatSeleccionatId;
+                    });
+                    if (empleat) {
+                        // Actualitzar el departament de l'empleat
+                        empleat.departament = nouDepartament || empleat.departament; // Utilitza el nou departament o el mateix si no s'ha proporcionat
+                        localStorage.setItem('savedEmployees', JSON.stringify(savedEmployees)); // Actualitza l'emmagatzematge local
+
+                        // Mostrar informació a la consola en lloc d'alerta
+                        console.log("L'usuari " + empleat.nom + " està inclòs en el nou projecte:\nNom: " + nomProjecte + "\nEmpleat: " + $("#seleccioEmpleat option:selected").text() + "\nNou Departament: " + empleat.departament);
+                    } else {
+                        console.error("Error: No s'ha trobat l'empleat seleccionat.");
+                    }
+                } else {
+                    console.error("Cal omplir tots els camps abans de confirmar la creació del projecte.");
+                }
+            }
+        </script>
+    </body>
+    </html>

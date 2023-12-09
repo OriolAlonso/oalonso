@@ -1,0 +1,221 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="">
+        <link rel="shortcut icon" href="images/" type="image/x-icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="images/logo.png">
+        <title> Oriol Alonso</title>
+    </head>
+
+    <body>
+        <div id="menu">
+            <!-- <div id="titles_burger">
+                <a href="#Home" onclick="showMenu()">INICI</a>
+                <a href="#Leguage" onclick="showMenu()">LLENGUATGES</a>
+                <a href="#AboutMe" onclick="showMenu()">SOBRE MI</a>
+                <a href="#Projects" onclick="showMenu()">PROJECTES</a>
+                <a href="#Contact" onclick="showMenu()">CONTACTE</a>
+            </div> -->
+            <div id="burger">
+                <img id="menu_image" src="images/menu.png" onclick="showMenu()" onclick="toggleLanguageForm()" alt="Menu burger">
+            </div>
+            <div id="container_icon">
+                <img id="icon_image" src="images/imatge.png" alt="Image" onclick="reloadPage()">
+            </div>
+
+            <div id="menu_titles">
+                <div>
+                </div>
+                <a href="#Home">INICI</a>
+                <a href="#Language" >LLENGUATGES</a>
+                <a href="#AboutMe">SOBRE MI</a>
+                <a href="#Projects">PROJECTES</a>
+                <a href="#Contact">CONTACTE</a>
+            </div>
+            
+        </div>
+        
+        <div id="Home"></div>
+        
+        <div id="home_container">
+            
+            <div id="title_container">
+                
+                <div id="saludo_id">
+                    <h1> Benvingut, Soc Oriol Alonso</h1>
+                </div>
+
+                <div id="slogan_id">
+                    <p> Un programador júnior en constant cerca de nous coneixements i oportunitats per a  descubrir, créixer i contribuir al món de la programació.</p><br><br>
+                </div>
+            </div>
+        </div>
+        
+    <div id="Leguage">
+    </div>
+    <div id="title_text_container">
+        <div id="proyect_titel">
+            <div id="Language"></div>
+            <h1>Llengües</h1>
+        </div>
+    </div>
+    <div class="helper"></div>
+        <div id="about_container">
+            <div id="children_about1">
+                <div id="personal_image">
+                    <img src="images/catala.png" alt="Image">
+                </div>
+            </div>
+            <div id="children_about2" class="d-flex flex-column align-items-start ml-3">
+                <div id="container_title">
+                    <h3>Quina llengua preferixes?</h3>
+                </div>
+                <p class="justify">
+                    Aquí pots seleccionar la teva llengua preferida per veure el contingut en la llengua desitjada.
+                </p>
+                <div id="language_form">
+                    <p>Selecciona la teva llengua:</p>
+                    <div class="form-group">
+                        <label for="language">Llengua:</label>
+                        <select class="form-control" id="language">
+                            <option value="catala">Català</option>
+                            <option value="angles">Anglès</option>
+                            <option value="espanol">Espanyol</option>
+                        </select>
+                    </div>
+                    <button class="buttons" id="applyButton">Aplica</button>
+                </div>                        
+            </div>
+            </div>
+        </div>
+        <div id="AboutMe">
+        </div>
+        <div id="title_text_container">
+            <div id="proyect_titel">
+                <h1>Sobre Mi</h1>
+            </div>
+        </div>
+        <div class="helper"></div>
+            <div id="about_container">
+                <div id="children_about2">
+                    <div id="container_title">
+                        <h3>¿Qui soc jo?</h3>
+                    </div>
+                    <h4>Soc estudiant de Desenvolupament d'Aplicacions Multiplataforma.
+                    </h4>
+                    <p class="justify">
+                        Actualment, estic en el meu segon any del curs, on estic adquirint coneixements valuosos i experiència pràctica en aquest camp en constant evolució.
+                        <br><br>
+                        Des que em vaig topar amb el món del desenvolupament de programari, alguna cosa va ressonar profundament en mi, i vaig saber amb absoluta certesa que era un camí que valia la pena seguir.
+                        <br><br>
+                        Destaco pel meu enfocament seriós i calmat en el treball. Em desembolico eficaçment en entorns que exigeixen concentració, atenció al detall i comunicació clara. Puc treballar sota pressió, mantenint la calma i resolent problemes en situacions desafiadores. Sempre puc mantenir un alt rendiment i lliurar treball d'alta qualitat, fins i tot enfront de terminis ajustats o demandes urgents.
+                        <br><br><br>
+                    <div id="contactme">
+                        <button id="normal_button" dowload=""> <a href="#Contact">Descargar CV</a></button>
+                    </div>
+                    </p>
+                </div>
+                <div id="children_about1">
+                    <div id="personal_image">
+                        <img src="images/escritori.png" alt="Image">
+                    </div>
+                </div>
+            </div>
+
+            <div id="skills">
+                <div>
+                    <h2>Competències</h3>
+                </div>
+
+                <div id="skills_div">
+                    <p class="skill">Java</p>
+                    <p class="skill">Python</p>
+                    <p class="skill">JavaScript</p>
+                    <p class="skill">MySQL</p>
+                    <p class="skill">HTML</p>
+                    <p class="skill">CSS</p>
+                    <p class="skill">Terminal</p>
+                    <p class="skill">Linux</p>
+                    <p class="skill">Windows</p>
+                    <p class="skill">Impresio 3D</p>
+                    <p class="skill">Odoo</p>
+                    <p class="skill">Inglés</p>
+                </div>
+            </div>
+        </div>
+        <div id="Projects"></div>
+        <div id="projects">
+            <div id="title_text_container">
+                <div id="project_title">
+                    <H1>Proyectes</H1>
+                </div>
+                <div id="container_p">
+                    <p> Aquí trobaràs alguns dels projectes personals que he fet, cadascun amb el seu enllaç a GitHub </p>
+                </div>
+            </div>
+
+            <div class="projects">
+                <div class="project">
+                    <div class="project_img">
+                        <img src="images/PASS.png" alt="" style="height: 85%; width: 75%;">
+                    </div>
+                    <div class="title_project">
+                        <h2>Projecte Web "PASS"</h2>
+                        <p class="justify">Projecte del inscastellet sobre PASS (PAssword administrator super secure). Es un projecte per administrar Hores i activitats.</p>
+                        <a href="https://github.com/OriolAlonso/PASS.git"  target="_blank"><img id="icon_image" src="images/Github.png" alt="GitHub Image"></a>
+                        <a href="https://youtu.be/MdPyWte940E"  target="_blank"><img id="icon_image" src="images/youtube.png" alt="GitHub Image"></a>
+                        <a href=".\Projectes\Tasca 14 Projecte WEB-APP\Login.html"  target="_blank"><img id="icon_image" src=".\Projectes\Tasca 14 Projecte WEB-APP\Logo.png" alt="GitHub Image" style="border-radius: 100%;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Contact">
+        </div>
+        <div class="helper"></div>
+        <div id="contacto">
+            <div id="titulo_contacto">
+                <H1>Contacte</H1>
+            </div>
+
+            <div id="contact_container">
+                <div class="name_container">
+                    <label class="names" for="name">Nom</label><br>
+                    <input type="text" id="name" name="name" placeholder="Nom" required>
+                </div>
+                <div id="email_container">
+                    <label class="names" for="email">Email</label><br>
+                    <input type="email" id="email" name="email" placeholder="exempledecorreu@algo.com" required>
+                </div>
+                <div class="message_container">
+                    <label class="names" for="message">Mensatge</label>
+                    <br>
+                    <textarea type="text" id="mensaje" name="message" placeholder="Introdueix el text"
+                        required></textarea>
+                </div>
+                <div id="button_div">
+                    <button id="normal_button" onclick="validateForm()">Envia</button>
+                </div>
+
+            </div>
+            
+        </div>
+        <script src="code.js"></script>
+    </body>
+    <footer>
+        <div id="container">
+            <div id="icons_container1">
+                <a href="https://github.com/OriolAlonso" target="_blank"><img id="icon_image" src="images/Github.png" alt="GitHub Image"></a>
+                <p>&copy; 2023 Oriol Alonso. <br>  Credits a  <a style="color: black;" href="https://www.youtube.com/watch?v=ivyIqmczxHU"> AlexCG Design </a></p>
+                <a href="https://www.linkedin.com/in/oriol-alonso-ruiz-80b465267/" target="_blank" ><img id="icon_image"src="images/Linkedin.png" alt="LinkedIn Image"></a>
+            </div>
+        </div>
+    </footer>
+    </html>

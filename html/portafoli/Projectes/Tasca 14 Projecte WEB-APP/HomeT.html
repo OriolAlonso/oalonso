@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PASS Home</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="shortcut icon" href="logo.png">
+    <meta name="visits" content="0">
+    <!-- Estils addicionals específics per a aquesta pàgina -->
+    <style> .eliminar { color: red; cursor: pointer; }</style>
+</head>
+
+<body style="background-color: rgb(0, 74, 173);">
+    <!-- Capçalera de la pàgina amb el logo i botó de tancar sessió -->
+    <div id="header-container">
+        <header class="wrapper clearfix drow">
+            <img src="logo.png" alt="Logo" id="header-logo" style="height: 50px; width: 50px;">
+            <img src="apagar.png" alt="Apagar" id="apagar-logo" onclick="returnToLogin()" style="height: 50px; width: 60px;">
+        </header>
+    </div>
+
+    <div id="content-container" class="container">
+        <!-- Contenidor per a la llista d'objectes -->
+        <div id="object-list" class="object-list-container">
+            <div class="object-list-inner" id="activitats-container" style="padding: 10px; border-radius: 1%;">
+            </div>
+            <!-- Botons de navegació per la llista d'objectes -->
+            <div class="navigation-buttons">
+                <button class="btn btn-primary"  id="scroll-up">Pujar</button>
+                <button class="btn btn-primary"  id="scroll-down">Baixar</button>
+            </div>
+        </div>
+        <!-- Botó per redirigir a la pàgina de modificació -->
+        <button class="btn btn-primary" id="submit-button" onclick="redirectToMR()">Modifica</button>
+    </div>
+
+    <!-- Enllaços als scripts de jQuery i Bootstrap, i script personalitzat -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Function to display activities with hours
+        function displayActivitiesWithHours() {
+            // Obtenir la llista d'activitats des de localStorage
+            var activityList = JSON.parse(localStorage.getItem('activityList')) || [];
+
+            // Iterar sobre les activitats i afegir-les al contenidor d'activitats
+            activityList.forEach(function (activity) {
+                console.log('Activity from localStorage:', activity);
+
+                var activityHTML = "<div class='Horari object-info' data-id='" + activity.id + "'>" +
+                    "<h4>" + activity.titol + "</h4>";
+
+                // Verificar si l'activitat és de tipus 'hora' i afegir les hores si és el cas
+                if (activity.tipus === 'hora') {
+                    console.log('Hora d\'inici des de localStorage:', activity.horaInici);
+                    console.log('Hora de fi des de localStorage:', activity.horaFi);
+
+                    activityHTML += "<p>" + activity.horaInici + " - " + activity.horaFi + "</p>";
+                }
+
+                activityHTML += "<p>Data actual: " + new Date().toLocaleDateString() + "</p>" +
+                    "</div>";
+
+                // Afegir l'activitat al contenidor d'activitats
+                $("#activitats-container").append(activityHTML);
+            });
+        }
+        // Executar la funció per mostrar les activitats amb hores quan la pàgina està carregada
+        $(document).ready(function () {
+            displayActivitiesWithHours();
+        });
+
+        // Elimina el element del DOM i del localStorage
+        $(document).on("click", ".eliminar", function () {
+            var parent = $(this).closest('.Horari');
+            var activityId = parent.data('id');
+
+            // Elimina l'element del localStorage
+            var activityList = JSON.parse(localStorage.getItem('activityList')) || [];
+            var updatedList = activityList.filter(function (activity) {
+                return activity.id !== activityId;
+            });
+            localStorage.setItem('activityList', JSON.stringify(updatedList));
+
+            // Elimina l'element del DOM
+            parent.remove();
+        });
+    </script>
+
+</body>
+
+</html>

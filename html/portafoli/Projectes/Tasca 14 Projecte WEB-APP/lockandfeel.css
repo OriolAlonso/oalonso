@@ -1,0 +1,63 @@
+        /* Estil de la capçalera */
+        header {
+            background-color: #0072c6;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header-logo,
+        #apagar-logo {
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            float: left; /* Afegir aquesta propietat per fer que l'element es pengi a l'esquerra */
+        }
+        
+
+        #apagar-logo:hover {
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Estil del contenidor d'activitats */
+        .object-list-inner {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .object-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .eliminar {
+            color: red;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* Botons de navegació */
+        .navigation-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-primary {
+            background-color: #0072c6;
+            border: none;
+        }
+
+        /* Estil del botó de Modifica */
+        #submit-button {
+            background-color: #28a745;
+            border: none;
+            margin-top: 20px;
+            width: 20%;
+        }

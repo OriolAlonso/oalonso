@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PASS Home</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="shortcut icon" href="logo.png">
+    <meta name="visits" content="0">
+    <style> .eliminar {color: red;cursor: pointer;} </style>
+    <div id="header-container">
+        <header class="wrapper clearfix" class="drow">
+            <img src="logo.png" alt="Logo" id="header-logo" style="height: 50px; width: 50px ;">
+            <img src="apagar.png" alt="Apagar" id="apagar-logo" onclick="location.href='Login.html'" style="height: 50px; width: 60px ;">
+        </header>
+    </div>z
+</head>
+
+<body style="background-color: rgb(0, 74, 173);">
+    <div id="login-container" class="container">
+        <div id="login-form" class="text-center">
+        </div>
+    </div>
+    <div id="content-container" class="container" style="background-color: rgb(0, 74, 173);">
+        <!-- Afegit l'identificador a la llista d'objectes -->
+        <div id="object-list" class="object-list-container">
+            <div class="object-list-inner" id="activitats-container">
+                <!-- La llista d'empleats es generará aquí -->
+                <!-- Objecte 1 amb una variable numèrica -->
+                <div class="Empleat object-info" data-id="1">
+                    <h4>Master</h4>
+                    <p>Administracio</p>
+                    <i class="fas fa-trash eliminar" title="Esborra empleat"></i>
+                </div>
+
+                <!-- Objecte 2 amb una variable numèrica -->
+                <div class="Empleat object-info" data-id="2">
+                    <h4>Nil</h4>
+                    <p>Projecte Voult</p>
+                    <i class="fas fa-trash eliminar" title="Esborra empleat"></i>
+                </div>
+
+                <!-- Objecte 3 amb una variable numèrica -->
+                <div class="Empleat object-info" data-id="3">
+                    <h4>Jonathan</h4>
+                    <p>Projecte C.E.</p>
+                    <i class="fas fa-trash eliminar" title="Esborra empleat"></i>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" id="submit-button" onclick="location.href='ModyfyEpleat.html' ">Crea empleat</button>
+        <button class="btn btn-primary" id="submit-button" onclick="location.href='ModifyProyect.html' ">Modificar Proyecte</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="Empleador.js"></script>
+    <script>
+        var savedEmployees = [];
+
+        // Función para cargar los empleados guardados en la lista
+        function loadSavedEmployees() {
+            var storedEmployees = localStorage.getItem('savedEmployees');
+            if (storedEmployees) {
+                savedEmployees = JSON.parse(storedEmployees);
+                updateEmployeeListHome();
+            }
+        }
+
+        // Función para agregar un empleado a la lista
+        function addEmployeeToHome(empleat) {
+            var employeeHTML = "<div class='Empleat object-info' data-id='" + empleat.id + "'>" +
+                "<h4>" + empleat.nom + "</h4>" +
+                "<p>" + empleat.departament + "</p>" +
+                "<i class='fas fa-trash eliminar' title='Esborra empleat'></i>" +
+                "</div>";
+
+            $("#activitats-container").append(employeeHTML);
+        }
+
+        // Función para actualizar la lista de empleados en HomeE.html
+        function updateEmployeeListHome() {
+            // Añade todos los empleados
+            savedEmployees.forEach(function (empleat) {
+                addEmployeeToHome(empleat);
+            });
+        }
+
+        // Elimina empleado al hacer clic en la papelera
+        $("#activitats-container").on("click", ".eliminar", function () {
+            var empleatId = $(this).parent().data("id");
+
+            // Encuentra y elimina al empleado por su id
+            savedEmployees = savedEmployees.filter(function (empleat) {
+                return empleat.id !== empleatId;
+            });
+
+            // Actualiza el almacenamiento local
+            localStorage.setItem("savedEmployees", JSON.stringify(savedEmployees));
+
+            // Elimina el elemento del DOM
+            $(this).parent().remove();
+        });
+    </script>
+</body>
+
+</html>

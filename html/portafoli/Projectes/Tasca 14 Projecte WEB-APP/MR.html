@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Activitats</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="visits" content="0">
+    <link rel="shortcut icon" href="logo.png">
+    <div id="header-container">
+        <header class="wrapper clearfix drow">
+            <img src="logo.png" alt="Logo" id="header-logo" style="height: 50px; width: 50px;">
+            <img src="apagar.png" alt="Apagar" id="apagar-logo" onclick="returnToHomeT()" style="height: 50px; width: 60px;">
+        </header>
+    </div>
+</head>
+
+<body style="background-color: rgb(0, 74, 173);">
+    <div id="content-container" class="container">
+
+        <!-- Botó per afegir activitat o hora -->
+        <button class="btn btn-primary" id="submit-button-Afegir" onclick="toggleForm('formulariAfegir')" style="padding: 25px; border-radius: 8%;">Agrega Activitat o Hora</button>
+
+        <!-- Formulari per afegir activitat o hora -->
+        <div id="formulariAfegir" class="container" style="background-color: rgb(0, 74, 173); display: none; color:#f0f0f0f0">
+            <div class="form-group">
+                <label for="tipusAfegir">Agrega:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipusAfegir" id="radioHoraAfegir" value="hora">
+                    <label class="form-check-label" for="radioHoraAfegir">Hora:</label>
+                </div>
+            </div>
+            <div class="form-group" id="horesAfegir" style="display: none;">
+                <label for="horaIniciAfegir">Hora d'inici:</label>
+                <input type="time" class="form-control" id="horaIniciAfegir">
+                <label for="horaFiAfegir">Hora de fi:</label>
+                <input type="time" class="form-control" id="horaFiAfegir">
+            </div>
+            <div class="form-group">
+                <label for="titolActivitatAfegir">Activitat:</label>
+                <input type="text" class="form-control" id="titolActivitatAfegir">
+            </div>
+            <button type="button" class="btn btn-primary" id="creaNoticiaAfegir" onclick="creaHoraiActivitat('formulariAfegir')">Confirma</button>
+        </div>
+
+        <br><br><br>
+        <!-- Botó per modificar activitat o hora -->
+        <button class="btn btn-primary" id="submit-button-Modificar" onclick="toggleForm('formulariModificar')" style="padding-left: 13px;padding-right: 13px;padding-top: 25px;padding-bottom: 25px; border-radius: 8%;">Modifica Activitat o Hora</button>
+
+        <!-- Formulari per modificar activitat o hora -->
+        <div id="formulariModificar" class="container" style="background-color: rgb(0, 74, 173); display: none; color:#f0f0f0f0">
+            <div class="form-group">
+                <label for="tipusModificar">Modifica:</label>
+            <!-- Llista de selecció d'activitats -->
+            <div class="form-group">
+                <label for="selectActivitats">Selecciona una activitat:</label>
+                <select class="form-control" id="selectActivitats" onchange="ompleFormulariAmbActivitat()">
+                    <!-- Les opcions es generaran dinàmicament amb JavaScript -->
+                </select>
+            </div>
+
+            <div class="form-group" id="horesModificar" style="display: none;">
+                <label for="horaIniciModificar">Hora d'inici:</label>
+                <input type="time" class="form-control" id="horaIniciModificar">
+                <label for="horaFiModificar">Hora de fi:</label>
+                <input type="time" class="form-control" id="horaFiModificar">
+            </div>
+            <div class="form-group">
+                <label for="titolActivitatModificar">Nom Activitat:</label>
+                <input type="text" class="form-control" id="titolActivitatModificar">
+            </div>
+            <button type="button" class="btn btn-primary" id="creaNoticiaModificar" onclick="ModificaHoraoActivitat('formulariModificar')" onclick="location.href='Login.html'">Confirma</button>
+        </div>
+        <!-- final del formulari  -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        var formId; // Defineix la variable formId globalment
+       // Funció per formatar l'hora com a hh:mm
+    function formatTime(time) {
+        return time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    // Funció per mostrar les activitats amb hores
+    function displayActivitiesWithHours() {
+        var activityList = JSON.parse(localStorage.getItem('activityList')) || [];
+
+        activityList.forEach(function (activity) {
+            var activityHTML = "<div class='Horari object-info' data-id='" + activity.id + "'>" +
+                "<h4>" + activity.titol + "</h4>";
+
+            if (activity.tipus === 'hora') {
+                activityHTML += "<p>" + formatTime(new Date(activity.horaInici)) + " - " + formatTime(new Date(activity.horaFi)) + "</p>";
+            }
+
+            activityHTML += "<p>Data actual: " + new Date().toLocaleDateString() + "</p>" +
+                "</div>";
+
+            $("#activitats-container").append(activityHTML);
+        });
+    }
+
+    // Funció per omplir el formulari amb les dades de l'activitat seleccionada
+    function ompleFormulariAmbActivitat() {
+        var selectedId = $('#selectActivitats').val();
+        var activityList = JSON.parse(localStorage.getItem('activityList')) || [];
+        var selectedActivity = activityList.find(function (activity) {
+            return activity.id == selectedId;
+        });
+
+        if (selectedActivity) {
+            $('#titolActivitatModificar').val(selectedActivity.titol);
+
+            if (selectedActivity.tipus === 'hora') {
+                $('#radioHoraModificar').prop('checked', true);
+                $('#horaIniciModificar').val(selectedActivity.horaInici);
+                $('#horaFiModificar').val(selectedActivity.horaFi);
+                $('#horesModificar').show();
+            } else {
+                $('#radioActivitatModificar').prop('checked', true);
+                $('#horesModificar').hide();
+            }
+        }
+    }
+
+    // Funció per generar les opcions del desplegable al carregar la pàgina
+    function generarOpcionsDesplegable() {
+        var activityList = JSON.parse(localStorage.getItem('activityList')) || [];
+        var options = activityList.map(function (activity) {
+            return '<option value="' + activity.id + '">' + activity.titol + '</option>';
+        });
+
+        $('#selectActivitats').html(options.join(''));
+        ompleFormulariAmbActivitat();
+    }
+
+    // Funció per crear una nova activitat o hora
+    function creaHoraiActivitat(formId) {
+        var tipus = $('input[name="tipusAfegir"]:checked').val();
+        var titol = $('#titolActivitatAfegir').val();
+        var horaInici = $('#horaIniciAfegir').val();
+        var horaFi = $('#horaFiAfegir').val();
+
+        if (titol && ((tipus === 'hora' && horaInici && horaFi) || tipus === 'activitat')) {
+            var newActivity = {
+                id: new Date().getTime(),
+                titol: titol,
+                tipus: tipus,
+                horaInici: tipus === 'hora' ? horaInici : null,
+                horaFi: tipus === 'hora' ? horaFi : null
+            };
+
+            var currentList = JSON.parse(localStorage.getItem('activityList')) || [];
+            currentList.unshift(newActivity);
+            localStorage.setItem('activityList', JSON.stringify(currentList));
+            window.location.href = 'HomeT.html';
+        }
+    }
+    // Funció per modificar una activitat o hora existent
+    function ModificaHoraoActivitat(formId) {
+        var titol = $('#titolActivitatModificar').val();
+        var horaInici = $('#horaIniciModificar').val();
+        var horaFi = $('#horaFiModificar').val();
+
+        console.log("Dades del formulari:");
+        console.log("Titol:", titol);
+        
+        var tipus;
+        if ($('#horesModificar').is(':visible')) {
+            tipus = 'hora';
+            console.log("Tipus: hora");
+            console.log("Hora d'inici:", horaInici);
+            console.log("Hora de fi:", horaFi);
+        } else {
+            tipus = 'activitat';
+            console.log("Tipus: activitat");
+        }
+
+        if (titol && ((tipus === 'hora' && horaInici && horaFi) || tipus === 'activitat')) {
+            var currentList = JSON.parse(localStorage.getItem('activityList')) || [];
+            var selectedId = $('#selectActivitats').val();
+            
+            console.log("ID seleccionada:", selectedId);
+
+            var index = currentList.findIndex(function (item) {
+                return item.id == selectedId;
+            });
+
+            console.log("Index a modificar:", index);
+
+            if (index !== -1) {
+                currentList[index].titol = titol;
+                currentList[index].tipus = tipus;
+                currentList[index].horaInici = tipus === 'hora' ? horaInici : null;
+                currentList[index].horaFi = tipus === 'hora' ? horaFi : null;
+
+                console.log("Dades modificades:");
+                console.log(currentList[index]);
+
+                localStorage.setItem('activityList', JSON.stringify(currentList));
+                console.log("Local storage actualitzat:", currentList);
+
+                window.location.href = 'HomeT.html';
+            } else {
+                console.log("No s'ha trobat cap activitat amb l'ID seleccionada.");
+            }
+        }
+    }
+    // Lògica per mostrar i amagar els camps d'hora segons la selecció de l'usuari
+    $(document).ready(function () {
+        $('input[name="tipusAfegir"]').change(function () {
+            if ($(this).val() === 'hora') {
+                $('#horesAfegir').show();
+            } else {
+                $('#horesAfegir').hide();
+            }
+        });
+
+        $('input[name="tipusModificar"]').change(function () {
+            if ($(this).val() === 'hora') {
+                $('#horesModificar').show();
+            } else {
+                $('#horesModificar').hide();
+            }
+        });
+    });
+
+    // Executar les funcions al carregar la pàgina
+    $(document).ready(function () {
+        generarOpcionsDesplegable();
+        displayActivitiesWithHours();
+    });
+    </script>
+    
+</body>
+
+</html>
