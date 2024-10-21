@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo.png">
-    <title> Oriol Alonso</title>
+    <title>Oriol Alonso</title>
 </head>
 
 <body>
@@ -38,10 +38,10 @@
     <div id="home_container">
         <div id="title_container">
             <div id="saludo_id">
-                <h1> Benvingut, Soc Oriol Alonso</h1>
+                <h1>Benvingut, Soc Oriol Alonso</h1>
             </div>
             <div id="slogan_id">
-                <p> Un programador júnior en constant cerca de nous coneixements i oportunitats per a descobrir, créixer i contribuir al món de la programació.</p><br><br>
+                <p>Un programador júnior en constant cerca de nous coneixements i oportunitats per a descobrir, créixer i contribuir al món de la programació.</p><br><br>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
         </div>
         <div id="children_about2" class="d-flex flex-column align-items-start ml-3">
             <div id="container_title">
-                <h3>Quina llengua preferixes?</h3>
+                <h3>Quina llengua prefereixes?</h3>
             </div>
             <p class="justify">
                 Aquí pots seleccionar la teva llengua preferida per veure el contingut en la llengua desitjada.
@@ -139,7 +139,7 @@
                 <H1 id="projectsTitle">Projectes</H1>
             </div>
             <div id="container_p">
-                <p id="projectsDesc"> Aquí trobaràs alguns dels projectes personals que he fet, cadascun amb el seu enllaç a GitHub </p>
+                <p id="projectsDesc">Aquí trobaràs alguns dels projectes personals que he fet, cadascun amb el seu enllaç a GitHub.</p>
             </div>
         </div>
         <div class="projects">
@@ -151,8 +151,8 @@
                     <h2>Projecte Web "PASS"</h2>
                     <p class="justify">Projecte del inscastellet sobre PASS (PAssword administrator super secure). Es un projecte per administrar Hores i activitats.</p>
                     <a href="https://github.com/OriolAlonso/PASS.git" target="_blank"><img id="icon_image" src="images/Github.png" alt="GitHub Image"></a>
-                    <a href="https://youtu.be/MdPyWte940E" target="_blank"><img id="icon_image" src="images/youtube.png" alt="GitHub Image"></a>
-                    <a href=".\Projectes\Tasca 14 Projecte WEB-APP\Login.html" target="_blank"><img id="icon_image" src=".\Projectes\Tasca 14 Projecte WEB-APP\Logo.png" alt="GitHub Image" style="border-radius: 100%;"></a>
+                    <a href="https://youtu.be/MdPyWte940E" target="_blank"><img id="icon_image" src="images/youtube.png" alt="YouTube Image"></a>
+                    <a href=".\Projectes\Tasca 14 Projecte WEB-APP\Login.html" target="_blank"><img id="icon_image" src=".\Projectes\Tasca 14 Projecte WEB-APP\Logo.png" alt="Logo Image" style="border-radius: 100%;"></a>
                 </div>
             </div>
         </div>
@@ -173,27 +173,29 @@
                 <label class="names" for="email">Email</label><br>
                 <input type="email" id="email" name="email" placeholder="exempledecorreu@algo.com" required>
             </div>
-            <div class="message_container">
-                <label class="names" for="message">Mensatge</label>
-                <br>
-                <textarea type="text" id="mensaje" name="message" placeholder="Introdueix el text" required></textarea>
+            <div id="mensaje_container">
+                <label class="names" for="mensaje">Missatge</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea>
             </div>
-            <div id="button_div">
-                <button id="normal_button" onclick="validateForm()">Envia</button>
+            <div id="submit_container">
+                <input type="submit" id="submit" value="Enviar">
             </div>
         </div>
     </div>
 
     <footer>
-        <div id="container">
-            <div id="icons_container1">
+        <div id="foot_container">
+            <div id="copy">
+                <p>© 2023 Oriol Alonso</p>
+            </div>
+            <div id="social_media">
                 <a href="https://github.com/OriolAlonso" target="_blank"><img id="icon_image" src="images/Github.png" alt="GitHub Image"></a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Función para traducir el contenido basado en el idioma seleccionado
+        // Funció per traduir el contingut basat en la llengua seleccionada
         function translateContent(language) {
             const translations = {
                 "catala": {
@@ -225,7 +227,7 @@
                 }
             };
 
-            // Cambiar el contenido de la página
+            // Canviar el contingut de la pàgina
             $("#aboutMeTitle").text(translations[language].aboutMeTitle);
             $("#aboutMeSubtitle").text(translations[language].aboutMeSubtitle);
             $("#aboutMeText").text(translations[language].aboutMeText);
@@ -236,7 +238,7 @@
         }
 
         $(document).ready(function() {
-            // Cuando se presiona el botón "Aplica", cambia el idioma
+            // Quan es prem el botó "Aplica", canvia la llengua
             $("#applyButton").click(function() {
                 const selectedLanguage = $("#language").val();
                 translateContent(selectedLanguage);
